@@ -4,12 +4,13 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/TicketsBot/logarchiver/pkg/config"
-	"github.com/TicketsBot/logarchiver/pkg/s3client"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
 	"strconv"
 	"strings"
+
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/config"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/s3client"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/credentials"
 )
 
 var (

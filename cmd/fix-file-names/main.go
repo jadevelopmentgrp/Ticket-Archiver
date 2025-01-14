@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"flag"
-	"github.com/TicketsBot/logarchiver/pkg/config"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
-	"go.uber.org/zap"
 	"strings"
 	"sync"
 	"sync/atomic"
+
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/config"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/credentials"
+	"go.uber.org/zap"
 )
 
 const workers = 30

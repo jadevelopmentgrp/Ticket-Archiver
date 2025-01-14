@@ -4,8 +4,9 @@ import (
 	"context"
 	_ "embed"
 	"errors"
-	"github.com/TicketsBot/logarchiver/pkg/repository/model"
+
 	"github.com/jackc/pgx/v5"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository/model"
 )
 
 type PostgresObjectRepository struct {

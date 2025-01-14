@@ -13,7 +13,6 @@ type Config struct {
 	SecretKey       string    `env:"S3_SECRET"`
 	DefaultBucketId uuid.UUID `env:"DEFAULT_BUCKET_ID"`
 
-	SentryDsn      string `env:"SENTRY_DSN"`
 	ProductionMode bool   `env:"PRODUCTION_MODE" envDefault:"false"`
 	AdminAuthToken string `env:"ADMIN_AUTH_TOKEN"`
 

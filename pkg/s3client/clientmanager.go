@@ -3,15 +3,16 @@ package s3client
 import (
 	"context"
 	"errors"
-	"github.com/TicketsBot/logarchiver/pkg/config"
-	"github.com/TicketsBot/logarchiver/pkg/repository"
-	"github.com/TicketsBot/logarchiver/pkg/repository/model"
-	"github.com/google/uuid"
-	"github.com/minio/minio-go/v7"
-	"github.com/minio/minio-go/v7/pkg/credentials"
 	"net/url"
 	"strings"
 	"sync"
+
+	"github.com/google/uuid"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/config"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository/model"
+	"github.com/minio/minio-go/v7"
+	"github.com/minio/minio-go/v7/pkg/credentials"
 )
 
 type ShardedClientManager struct {

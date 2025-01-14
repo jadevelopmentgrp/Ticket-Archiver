@@ -2,8 +2,9 @@ package repository
 
 import (
 	"context"
-	"github.com/TicketsBot/logarchiver/pkg/repository/model"
+
 	"github.com/google/uuid"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository/model"
 )
 
 type Store interface {

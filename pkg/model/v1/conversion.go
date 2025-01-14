@@ -1,8 +1,8 @@
 package v1
 
 import (
-	"github.com/TicketsBot/logarchiver/pkg/model"
-	v22 "github.com/TicketsBot/logarchiver/pkg/model/v2"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/model"
+	v22 "github.com/jadevelopmentgrp/Tickets-Archiver/pkg/model/v2"
 	"github.com/rxdn/gdl/objects/channel/message"
 )
 

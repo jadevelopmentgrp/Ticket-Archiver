@@ -2,30 +2,17 @@ package main
 
 import (
 	"context"
-	"fmt"
-	"github.com/TicketsBot/common/observability"
-	"github.com/TicketsBot/logarchiver/pkg/config"
-	"github.com/TicketsBot/logarchiver/pkg/http"
-	"github.com/TicketsBot/logarchiver/pkg/repository"
-	"github.com/TicketsBot/logarchiver/pkg/s3client"
-	"github.com/getsentry/sentry-go"
-	"go.uber.org/zap"
 	"time"
+
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/config"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/http"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/s3client"
+	"go.uber.org/zap"
 )
 
 func main() {
 	conf := config.Parse[config.Config]()
-
-	if err := sentry.Init(sentry.ClientOptions{
-		Dsn:   conf.SentryDsn,
-		Debug: !conf.ProductionMode,
-	}); err != nil {
-		if conf.ProductionMode {
-			panic(err)
-		} else {
-			fmt.Printf("Failed to initialise sentry: %v\n", err)
-		}
-	}
 
 	var logger *zap.Logger
 	var err error
@@ -33,7 +20,6 @@ func main() {
 		logger, err = zap.NewProduction(
 			zap.AddCaller(),
 			zap.AddStacktrace(zap.ErrorLevel),
-			zap.WrapCore(observability.ZapSentryAdapter(observability.EnvironmentProduction)),
 		)
 	} else {
 		logger, err = zap.NewDevelopment(zap.AddCaller(), zap.AddStacktrace(zap.ErrorLevel))

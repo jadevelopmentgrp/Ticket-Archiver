@@ -1,13 +1,14 @@
 package v2
 
 import (
-	"github.com/TicketsBot/logarchiver/pkg/model"
+	"regexp"
+	"strconv"
+
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/model"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/channel/message"
 	"github.com/rxdn/gdl/objects/guild"
 	"github.com/rxdn/gdl/objects/user"
-	"regexp"
-	"strconv"
 )
 
 var (

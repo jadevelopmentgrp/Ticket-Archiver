@@ -2,8 +2,9 @@ package repository
 
 import (
 	"context"
-	"github.com/TicketsBot/logarchiver/pkg/config"
+
 	"github.com/jackc/pgx/v5/pgxpool"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/config"
 )
 
 type PostgresStore struct {

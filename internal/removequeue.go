@@ -2,10 +2,11 @@ package internal
 
 import (
 	"errors"
-	"github.com/TicketsBot/common/collections"
-	"go.uber.org/zap"
 	"sync"
 	"time"
+
+	"github.com/jadevelopmentgrp/Tickets-Utilities/collections"
+	"go.uber.org/zap"
 )
 
 type (

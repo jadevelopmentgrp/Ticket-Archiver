@@ -1,11 +1,12 @@
 package v2
 
 import (
-	"github.com/TicketsBot/logarchiver/pkg/model"
+	"time"
+
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/model"
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/channel/embed"
 	"github.com/rxdn/gdl/objects/channel/message"
-	"time"
 )
 
 type Transcript struct {

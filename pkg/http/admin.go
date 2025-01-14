@@ -2,12 +2,13 @@ package http
 
 import (
 	"errors"
-	"github.com/TicketsBot/logarchiver/pkg/repository"
-	"github.com/TicketsBot/logarchiver/pkg/repository/model"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository"
+	"github.com/jadevelopmentgrp/Tickets-Archiver/pkg/repository/model"
 	"go.uber.org/zap"
-	"net/http"
 )
 
 func (s *Server) adminListBuckets(ctx *gin.Context) {
