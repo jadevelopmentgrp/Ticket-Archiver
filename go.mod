@@ -1,4 +1,4 @@
-module github.com/jadevelopmentgrp/Ticket-Archiver
+module github.com/jadevelopmentgrp/Tickets-Archiver
 
 go 1.21
 
