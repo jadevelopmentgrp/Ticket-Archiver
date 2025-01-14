@@ -4,8 +4,8 @@ RUN go version
 
 RUN apk update && apk upgrade && apk add git zlib-dev gcc musl-dev
 
-COPY . /go/src/github.com/TicketsBot/logarchiver
-WORKDIR  /go/src/github.com/TicketsBot/logarchiver
+COPY . /go/src/github.com/jadevelopmentgrp/Tickets-Archiver
+WORKDIR  /go/src/github.com/jadevelopmentgrp/Tickets-Archiver
 
 RUN set -Eeux && \
     go mod download && \
@@ -14,17 +14,17 @@ RUN set -Eeux && \
 RUN GOOS=linux GOARCH=amd64 \
     go build \
     -trimpath \
-    -o logarchiver cmd/logarchiver/main.go
+    -o Tickets-Archiver cmd/Tickets-Archiver/main.go
 
 FROM alpine:latest
 
 RUN apk update && apk upgrade
 
-COPY --from=builder /go/src/github.com/TicketsBot/logarchiver/logarchiver /srv/logarchiver/logarchiver
-RUN chmod +x /srv/logarchiver/logarchiver
+COPY --from=builder /go/src/jadevelopmentgrp/Tickets-Archiver/Tickets-Archiver /srv/Tickets-Archiver/Tickets-Archiver
+RUN chmod +x /srv/Tickets-Archiver/Tickets-Archiver
 
 RUN adduser container --disabled-password --no-create-home
 USER container
-WORKDIR /srv/logarchiver
+WORKDIR /srv/Tickets-Archiver
 
-CMD ["/srv/logarchiver/logarchiver"]
+CMD ["/srv/Tickets-Archiver/Tickets-Archiver"]
