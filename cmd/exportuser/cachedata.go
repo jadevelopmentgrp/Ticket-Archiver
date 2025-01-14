@@ -3,8 +3,9 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/rxdn/gdl/cache"
 	"strconv"
+
+	"github.com/rxdn/gdl/cache"
 )
 
 func getCacheData(cache *cache.PgCache, userId uint64) map[string]interface{} {

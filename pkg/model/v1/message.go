@@ -1,9 +1,10 @@
 package v1
 
 import (
+	"time"
+
 	"github.com/rxdn/gdl/objects/channel"
 	"github.com/rxdn/gdl/objects/channel/embed"
-	"time"
 )
 
 type Message struct {
