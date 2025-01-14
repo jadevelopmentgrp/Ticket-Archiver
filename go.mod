@@ -1,4 +1,4 @@
-module github.com/TicketsBot/logarchiver
+module github.com/jadevelopmentgrp/Ticket-Archiver
 
 go 1.21
 
