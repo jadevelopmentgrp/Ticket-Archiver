@@ -11,8 +11,8 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/jackc/pgx/v4 v4.18.3
 	github.com/jackc/pgx/v5 v5.6.0
-	github.com/jadevelopmentgrp/Tickets-Database v1.0.2
-	github.com/jadevelopmentgrp/Tickets-Utilities v0.0.0-20250114185141-b5256d246d1f
+	github.com/jadevelopmentgrp/Tickets-Database v1.0.5
+	github.com/jadevelopmentgrp/Tickets-Utilities v1.0.2
 	github.com/minio/minio-go/v7 v7.0.73
 	github.com/rxdn/gdl v0.0.0-20241012214045-890597169639
 	go.uber.org/zap v1.23.0
