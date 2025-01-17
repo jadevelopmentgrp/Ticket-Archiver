@@ -249,13 +249,12 @@ func getUserData(db *database.Database, userId uint64) map[string]interface{} {
 	data["claimed_tickets"] = getClaimedTickets(db, userId)
 	data["member_of_tickets"] = getTicketsMember(db, userId)
 	data["tickets"] = getTickets(db, userId)
-	data["premium_activated_for"] = getPremiumActivatedFor(db, userId)
 
-	guilds, err := db.UserGuilds.Get(userId)
+	guilds, err := db.UserGuilds.Get(context.Background(), userId)
 	must(err)
 	data["guilds"] = guilds
 
-	voteTime, err := db.Votes.Get(userId)
+	voteTime, err := db.Votes.Get(context.Background(), userId)
 	must(err)
 	if voteTime.IsZero() {
 		data["last_vote_time"] = nil
@@ -263,7 +262,7 @@ func getUserData(db *database.Database, userId uint64) map[string]interface{} {
 		data["last_vote_time"] = voteTime
 	}
 
-	whitelabel, err := db.Whitelabel.GetByUserId(userId)
+	whitelabel, err := db.Whitelabel.GetByUserId(context.Background(), userId)
 	must(err)
 	if whitelabel.UserId == 0 {
 		data["whitelabel"] = nil
@@ -271,7 +270,7 @@ func getUserData(db *database.Database, userId uint64) map[string]interface{} {
 		data["whitelabel"] = whitelabel
 	}
 
-	whitelabelExpiry, err := db.WhitelabelUsers.GetExpiry(userId)
+	whitelabelExpiry, err := db.WhitelabelUsers.GetExpiry(context.Background(), userId)
 	must(err)
 	if whitelabelExpiry.IsZero() {
 		data["whitelabel_expiry"] = nil
@@ -464,29 +463,11 @@ WHERE "user_id" = $1;`
 	return
 }
 
-func getPremiumActivatedFor(db *database.Database, userId uint64) (guilds []uint64) {
-	query := `
-SELECT guild_id
-FROM used_keys
-WHERE "activated_by" = $1;`
-
-	rows, err := db.Blacklist.Query(context.Background(), query, userId)
-	must(err)
-
-	for rows.Next() {
-		var guildId uint64
-		must(rows.Scan(&guildId))
-		guilds = append(guilds, guildId)
-	}
-
-	return
-}
-
 // cache data
 func getCacheData(cache *cache.PgCache, userId uint64) map[string]interface{} {
 	data := make(map[string]interface{})
 
-	user, ok := cache.GetUser(userId)
+	user, ok := cache.GetUser(context.Background(), userId)
 	if ok {
 		data["user"] = user
 	} else {

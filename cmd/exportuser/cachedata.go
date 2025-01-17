@@ -11,7 +11,7 @@ import (
 func getCacheData(cache *cache.PgCache, userId uint64) map[string]interface{} {
 	data := make(map[string]interface{})
 
-	user, ok := cache.GetUser(userId)
+	user, ok := cache.GetUser(context.Background(), userId)
 	if ok {
 		data["user"] = user
 	} else {
